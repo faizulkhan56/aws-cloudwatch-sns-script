@@ -17,3 +17,19 @@ Before running the script, make sure you have the following:
    ```bash
    sudo apt install python3 python3-pip
    pip3 install boto3
+3. **Create an IAM Role (if using EC2)**: If running this script on an EC2 instance, attach an IAM role to your instance with the following permissions:
+
+CloudWatchFullAccess
+AmazonSNSFullAccess
+
+4. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/aws-cloudwatch-sns-script.git
+   cd aws-cloudwatch-sns-script
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install boto3
+   python3 create_alarm.py
+   
+
+
