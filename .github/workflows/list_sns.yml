@@ -1,0 +1,40 @@
+name: List SNS Topics and Subscriptions
+
+# Trigger the workflow on push or pull requests to the main branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  list-sns:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-east-1
+
+      # Step 2: Set up Python environment
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install boto3
+
+      # Step 4: Run the list_sns.py script
+      - name: Run list_sns.py
+        run: |
+          source venv/bin/activate
+          python3 list_sns.py
