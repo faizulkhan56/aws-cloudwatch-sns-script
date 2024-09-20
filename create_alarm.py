@@ -4,7 +4,7 @@ import boto3
 cloudwatch = boto3.client('cloudwatch')
 
 # Manually provide the SNS Topic ARN
-sns_topic_arn = 'arn:aws:sns:us-west-2:123456789012:my-existing-sns-topic'  # Replace with your actual SNS Topic ARN
+sns_topic_arn = 'arn:aws:sns:us-east-1:149451857623:cpu-alarm-topic'  # Replace with your actual SNS Topic ARN
 print(f"Using SNS Topic ARN: {sns_topic_arn}")
 
 # Step 1: Create CloudWatch Alarm for CPU Utilization
@@ -19,7 +19,7 @@ response = cloudwatch.put_metric_alarm(
     Dimensions=[
         {
             'Name': 'InstanceId',
-            'Value': 'i-08f45a96a9a7d5167'  # Replace with your actual EC2 instance ID
+            'Value': 'i-0cefdc359e8944d84'  # Replace with your actual EC2 instance ID
         }
     ],
     Period=300,  # Period in seconds (5 minutes)
