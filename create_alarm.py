@@ -9,7 +9,7 @@ print(f"Using SNS Topic ARN: {sns_topic_arn}")
 
 # Step 1: Create CloudWatch Alarm for CPU Utilization
 response = cloudwatch.put_metric_alarm(
-    AlarmName='High_CPU_Utilization',
+    AlarmName='High_CPU_Utilization-1',
     AlarmDescription='Alarm when CPU exceeds 80%',
     ActionsEnabled=True,
     AlarmActions=[sns_topic_arn],  # Use the manually provided SNS topic ARN for notifications
