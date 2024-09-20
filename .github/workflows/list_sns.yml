@@ -9,6 +9,10 @@ jobs:
   list-sns:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write   # Allows requesting an OIDC token to assume the IAM role
+      contents: read 
+
     steps:
       # Step 1: Check out the repository
       - name: Check out the repository
