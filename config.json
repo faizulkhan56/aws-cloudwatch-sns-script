@@ -1,6 +1,11 @@
 {
     "log_group_name": "/aws/ec2/instance/my-instance-log",
     "query": "fields @timestamp, @message, @log, @logStream, @ingestionTime | filter @logStream = \"i-0cefdc359e8944d84/syslog\" | filter @message like /status code: 400/ | sort @timestamp desc | limit 20",
-    "start_time_offset_in_hours": 1,
-    "limit": 1000
+    "namespace": "MyEC2Metrics",
+    "metric_name": "MyEC2Metrics",
+    "alarm_name": "ssm alarm2",
+    "threshold": 5,
+    "sns_topic_arn": "arn:aws:sns:us-east-1:149451857623:cpu-alarm-topic",
+    "start_time_offset_in_seconds": 3600, 
+    "end_time_offset_in_seconds": 0  
 }
