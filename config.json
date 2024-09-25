@@ -1,0 +1,6 @@
+{
+    "log_group_name": "/aws/ec2/instance/my-instance-log",
+    "query": "fields @timestamp, @message, @log, @logStream, @ingestionTime | filter @logStream = \"i-0cefdc359e8944d84/syslog\" | filter @message like /status code: 400/ | sort @timestamp desc | limit 20",
+    "start_time_offset_in_hours": 1,
+    "limit": 1000
+}
