@@ -40,4 +40,4 @@ jobs:
       - name: Run create_alarm.py
         run: |
           source venv/bin/activate
-          python3 create_alarm.py
+          python3 create_alarm_auto.py
